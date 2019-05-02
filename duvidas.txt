@@ -1,0 +1,26 @@
+1 - Colocar async await só para dar console.log vale a pena?
+1 - Não, não vale a pena o async/wait só para isso, até porque o console.log já é síncrono, então não precisa forçar um await pra esperar ele executar ;)
+
+2- Existe uma forma de ter um liveReload nos projetos com nunjucks, para que o site carregue toda vez que os arquivos sofrerem alterações?
+2- Infelizmente não tem uma forma fácil de se fazer isso, a mais fácil delas é reiniciando o servidor mesmo, pois do contrário, as formas que encontrei tem uma cara de gambiarra, que prefiro nem te repassar.
+
+CREATE TABLE Appointment (
+	id PRIMARY KEY INTEGER NOT NULL,
+	date DATE NOT NULL,
+	user_id INTEGER NOT NULL,
+	provider_id INTEGER NOT NULL,
+  created_at DATE NOT NULL,
+  updated_at DATE NOT NULL,
+	CONSTRAINT PK_APPOINTMENT
+		PRIMARY KEY (id),
+  CONSTRAINT appointment_user_id
+    FOREIGN KEY (user_id)
+    REFERENCES users(id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
+  CONSTRAINT appointment_provider_id
+    FOREIGN KEY (provider_id)
+    REFERENCES users(id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
+);
